@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @divelog.date %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @divelog.point %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @divelog.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@divelog.picture_url, width: 600) if @divelog.picture.present? %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @divelog.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @divelog.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_divelog_path(@divelog) %> |
+<%= link_to 'Back', divelogs_path %>

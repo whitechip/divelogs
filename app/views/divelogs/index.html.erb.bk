@@ -1,0 +1,37 @@
+<h1>Listing Divelogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Point</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @divelogs.each do |divelog| %>
+      <tr>
+        <td><%= divelog.date %></td>
+        <td><%= divelog.point %></td>
+        <td><%= divelog.description %></td>
+        <td><%= divelog.picture %></td>
+        <td><%= divelog.latitude %></td>
+        <td><%= divelog.longitude %></td>
+        <td><%= link_to 'Show', divelog %></td>
+        <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
+        <td><%= link_to 'Destroy', divelog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Divelog', new_divelog_path %>

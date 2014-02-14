@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="span6">
+    <%= image_tag(@divelog.picture_url, :width => "95%") if @divelog.picture.present? %>
+  </div>
+
+  <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'pointmap'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      });
+  </script>
+
+  <div style='width: 600px;'>
+    <div id="pointmap" style='width: 600px; height: 300px;'></div>
+  </div>
+
+  <div class="span3">
+    <p><b>Point: </b><%= @divelog.point %></p>
+    <p><b>Description: </b><%= @divelog.description %></p>
+    <p><b>Date: </b><%= @divelog.date %></p>
+    <p><b>Latitude: </b><%= @divelog.latitude %></p><p><b>Longitude: </b><%= @divelog.longitude %></p>
+    <p>
+      <%= link_to 'Edit', edit_divelog_path(@divelog) %> |
+      <%= link_to 'Destroy', @divelog, confirm: 'Are you sure?', method: :delete %> |
+      <%= link_to 'Back', divelogs_path %>
+    </p>
+  </div>
+</div>
+
+
+<!--
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @divelog.date %>
+</p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @divelog.point %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @divelog.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@divelog.picture_url, width: 600) if @divelog.picture.present? %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @divelog.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @divelog.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_divelog_path(@divelog) %> |
+<%= link_to 'Back', divelogs_path %>
+-->

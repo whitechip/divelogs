@@ -1,0 +1,34 @@
+<h1>Listing Divelogs</h1>
+
+<% @divelogs.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |divelog| %>
+      <div class="span4">
+        <%= image_tag divelog.picture_url, :width => '100%' if divelog.picture.present?%>
+        <h4><%= link_to divelog.point, divelog %></h4>
+        <%= divelog.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<!--
+  <tbody>
+    <% @divelogs.each do |divelog| %>
+      <tr>
+        <td><%= divelog.date %></td>
+        <td><%= divelog.point %></td>
+        <td><%= divelog.description %></td>
+        <td><%= divelog.picture %></td>
+        <td><%= divelog.latitude %></td>
+        <td><%= divelog.longitude %></td>
+        <td><%= link_to 'Show', divelog %></td>
+        <td><%= link_to 'Edit', edit_divelog_path(divelog) %></td>
+        <td><%= link_to 'Destroy', divelog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
+<br>
+
+<%= link_to 'New Divelog', new_divelog_path %>
